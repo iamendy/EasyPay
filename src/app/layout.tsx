@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "@rainbow-me/rainbowkit/styles.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import Pancake from "@/components/Pancake";
 import Navbar from "@/components/Navbar";

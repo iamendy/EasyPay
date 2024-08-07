@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "@/components/Container";
 import ToggleMode from "@/components/ToggleMode";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const Navbar = () => {
   return (
@@ -13,8 +14,9 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className="flex items-center">
+          <div className="flex items-center gap-x-1">
             <ToggleMode />
+            <ConnectButton />
           </div>
         </div>
       </Container>

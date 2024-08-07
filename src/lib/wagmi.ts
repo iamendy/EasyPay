@@ -1,13 +1,10 @@
-import { createConfig, http } from "wagmi";
-import { celo } from "wagmi/chains";
-import { injected } from "wagmi/connectors";
-const apiKey = process.env.NEXT_PUBLIC_INFURA_API_KEY as string;
+import { getDefaultConfig } from "@rainbow-me/rainbowkit";
+import { arbitrum, arbitrumSepolia } from "wagmi/chains";
+const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID as string;
 
-export const config = createConfig({
-  chains: [celo],
-  connectors: [injected()],
-  transports: {
-    //@ts-ignore
-    [celo.id]: http(`https://celo-mainnet.infura.io/v3/${apiKey}`),
-  },
+export const config = getDefaultConfig({
+  appName: "EasyPay - easy links, fast payment!",
+  projectId: projectId,
+  chains: [arbitrum, arbitrumSepolia],
+  ssr: true,
 });

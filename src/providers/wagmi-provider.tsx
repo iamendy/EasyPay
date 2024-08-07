@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider as Wagmi } from "wagmi";
 import { config } from "@/lib/wagmi";
 const queryClient = new QueryClient();
+import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 
 export default function WagmiProvider({
   children,
@@ -13,7 +14,9 @@ export default function WagmiProvider({
 }) {
   return (
     <Wagmi config={config}>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider>{children}</RainbowKitProvider>
+      </QueryClientProvider>
     </Wagmi>
   );
 }
