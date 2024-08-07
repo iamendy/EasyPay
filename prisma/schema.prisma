@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Listing {
+  id          String   @id @default(cuid())
+  sellerId    String
+  buyerId     String?
+  title       String   @db.VarChar(255)
+  description String
+  rate      Float
+  quantity    Int      @default(1)
+  sold        Int      @default(0)
+  status      Int      @default(0)  // 0 pending, 1 Paid, 2 Cancelled
+  uid         String   @db.VarChar(5) @unique
+  seller      User     @relation("sellerListings", fields: [sellerId], references: [id])
+  buyer       User?    @relation("buyerListings", fields: [buyerId], references: [id])
+  createdAt   DateTime @default(now())
+  payments ListingPayment[]
+  
+  @@index([sellerId])
+  @@index([buyerId])
+  @@index([status])
+
+  @@map("listings")
+}
+
+model User {
+  id        String    @id @default(cuid())
+  address   String    @unique
+  username  String?
+  email     String?
+  sellerListings Listing[] @relation("sellerListings")
+  buyerListings Listing[] @relation("buyerListings")
+
+  @@map("users")
+}
+
+model ListingPayment {
+  id String @id @default(cuid())
+  listingId String
+  amount Float
+  buyer String
+  quantity Int
+  createdAt   DateTime @default(now())
+  
+  listing      Listing     @relation(fields: [listingId], references: [id])
+
+  @@map("listing_payments")
+}
