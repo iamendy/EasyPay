@@ -5,10 +5,13 @@ import AccountCard from "@/components/AccountCard";
 
 export default function Component() {
   return (
-    <div className="flex flex-col gap-y-6">
-      <AccountCard />
+    <section>
+      <h3 className="mb-2 lg:mb-6">Welcome,</h3>
+      <div className="flex flex-col gap-y-6 lg:flex-row lg:gap-x-10">
+        <AccountCard />
 
-      <Transactions />
-    </div>
+        <Transactions />
+      </div>
+    </section>
   );
 }
