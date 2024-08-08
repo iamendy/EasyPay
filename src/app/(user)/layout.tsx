@@ -8,10 +8,10 @@ const UserLayout = ({
 }>) => {
   return (
     <Container>
-      <main className="lg:flex lg:items-start lg:gap-x-12">
+      <main className="lg:flex lg:items-start lg:gap-x-12 ">
         <SideNav />
 
-        <div className="w-[80%]">{children}</div>
+        <div className="w-[70%]">{children}</div>
       </main>
     </Container>
   );

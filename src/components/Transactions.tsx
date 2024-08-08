@@ -38,7 +38,7 @@ export default function Transactions() {
   });
 
   return (
-    <Card className="lg:w-[70%]">
+    <Card>
       <CardHeader className="px-7">
         <CardTitle>Recent listings</CardTitle>
       </CardHeader>

@@ -189,14 +189,19 @@ export default function Create() {
               <Label htmlFor="content">Description</Label>
               <Textarea
                 id="content"
-                placeholder="You are a..."
+                placeholder="Nike Air Jordan"
                 className="min-h-4"
                 name="description"
+                rows={5}
               />
             </div>
 
-            <div className="grid gap-3">
-              <Button disabled={pending || isLoading} size="lg">
+            <div className="flex justify-end">
+              <Button
+                disabled={pending || isLoading}
+                size="lg"
+                className="w-fit"
+              >
                 {(pending || isLoading) && (
                   <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                 )}

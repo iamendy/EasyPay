@@ -31,9 +31,15 @@ export default function ListingsPage() {
   });
 
   return (
-    <Card className="w-[350px]">
-      <CardHeader>
-        <CardTitle>My Listings</CardTitle>
+    <Card>
+      <CardHeader className="flex flex-row justify-between items-center">
+        <h3 className="font-bold">My Listings</h3>
+        <Link
+          href="/listings/create"
+          className="w-fit px-4 rounded-md py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90 leading-none"
+        >
+          + New Listing
+        </Link>
       </CardHeader>
       <CardContent>
         {listings?.length > 0 ? (

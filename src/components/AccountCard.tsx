@@ -19,7 +19,7 @@ const AccountCard = () => {
   });
 
   return (
-    <Card className="lg:w-[30%]">
+    <Card>
       <CardHeader className="pb-2">
         <CardTitle className="text-4xl">${total}</CardTitle>
       </CardHeader>
