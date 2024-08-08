@@ -9,7 +9,7 @@ import { Plus, Minus } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
-import fastpay from "@/constants/easypay";
+import easypay from "@/constants/easypay";
 import { parseEther, stringToHex } from "viem";
 import { createListing } from "@/actions";
 import { useFormState, useFormStatus } from "react-dom";
@@ -61,8 +61,8 @@ export default function Create() {
   //simulate contract to validate args
   const { data, status, isFetching } = useSimulateContract({
     //@ts-ignore
-    address: fastpay?.address,
-    abi: fastpay?.abi,
+    address: easypay?.address,
+    abi: easypay?.abi,
     functionName: "addListing",
     args: [
       //@ts-ignore
