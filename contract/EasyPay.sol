@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./interfaces/IERC20.sol";
+import "interfaces/IERC20.sol";
 
 contract EasyPay {
-  address public usdt;
+  address public USDT; // 0xd9145CCE52D386f254917e481eB44e9943F39138
 
   enum Status {
     PENDING,
@@ -43,8 +43,8 @@ contract EasyPay {
     uint quantity
   );
 
-  constructor(address _usdt) {
-    usdt = _usdt;
+  constructor(address _USDT) {
+    USDT = _USDT;
   }
 
   function addListing(bytes32 _id, uint _rate, uint _quantity) public {
@@ -128,14 +128,13 @@ contract EasyPay {
     uint charge = deductCharge(listing.rate);
 
     //transfer balance to seller after charge
-    IERC20(usdt).transferFrom(msg.sender, listing.seller, price - charge);
+    IERC20(USDT).transferFrom(msg.sender, listing.seller, price - charge);
     //deduct charge
-    IERC20(usdt).transferFrom(msg.sender, address(this), charge);
+    IERC20(USDT).transferFrom(msg.sender, address(this), charge);
 
     listing.buyer = msg.sender;
     listing.quantity -= _quantity;
 
-    // check if listing is sold out
     if (listing.quantity == 0) {
       listing.status = Status.COMPLETED;
     } else {

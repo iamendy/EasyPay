@@ -7,7 +7,7 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import ProgressBar from "./ProgressBar";
-import cusd from "@/constants/cusd";
+import cusd from "@/constants/usdt";
 import easypay from "@/constants/easypay";
 import {
   useWriteContract,

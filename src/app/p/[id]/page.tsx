@@ -23,7 +23,7 @@ import {
   AlertDialogHeader,
 } from "@/components/ui/alert-dialog";
 import { usePayment } from "@/hooks/usePayment";
-import cusd from "@/constants/cusd";
+import cusd from "@/constants/usdt";
 import easypay from "@/constants/easypay";
 import { updateListing } from "@/actions";
 import { formatEther, parseEther, stringToHex } from "viem";
