@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## EasyPay Overview
 
-## Getting Started
+EasyPay is a Dapp that enables users and small businesses to create USDT payment links on Optimism!
 
-First, run the development server:
+## Problem
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Users in web3 can share long wallet addresses to receive payments. This is prone to typo error and also inconvenient for users or small businesses who also want to track payments and inventory.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Solution
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+EasyPay lets users create listings, share links, and receive USDT payments directly to their wallet. It's great for small businesses, donations, and community contributions.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Demo & Transaction
 
-## Learn More
+- [Live Dapp](https://esypay.vercel.app)
 
-To learn more about Next.js, take a look at the following resources:
+- [Verified Smart Contract (Optimism Sepolia)](https://optimism-sepolia.blockscout.com/address/0x0e1d617a3B4F88d6A26ea85DDe8Aa0dfCfcBcDbe)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Create Listing Transaction on Demo Video (BlockScout)](https://optimism-sepolia.blockscout.com/tx/0x28ef7c666540dfa561ba3e4d3d065a598139387159c5fa92b1ff2eb649b63080)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [Pay Listing Transaction on Demo Video (BlockScout) ](https://optimism-sepolia.blockscout.com/tx/0xfd646dfa27cacbfd3716de689fca557299e9e4cc092d054cb8aa481b52344df7)
 
-## Deploy on Vercel
+## Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Backend**: Solidity, Remix
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Frontend**: NextJs, Wagmi library for blockchain interaction
+
+- **Approach**: Associate listings with wallet addresses, facilitate payments via smart contract on Optimism blockchain for speed and cheap fees!
+
+## Future Plans (v2)
+
+- Add optional email notification on received payments
+
+- Add Images and videos to listings
+
+- Add public listing page for verified businesses (Marketplace)
+
+## Screenshots
+
+![cover_image](https://esypay.vercel.app/img/1.JPG)
+
+![cover_image](https://esypay.vercel.app/img/2.JPG)
+
+![cover_image](https://esypay.vercel.app/img/3.JPG)
