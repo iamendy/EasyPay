@@ -228,6 +228,18 @@ export default function ListingPage({ params }: { params: { id: string } }) {
   return (
     <Container>
       <div className="w-[60%] mx-auto">
+        <div className="flex justify-end underline pr-2">
+          {hash && (
+            <small>
+              <a
+                href={`https://optimism-sepolia.blockscout.com/tx/${hash}`}
+                target="_blank"
+              >
+                View Txn{" "}
+              </a>
+            </small>
+          )}
+        </div>
         <Card className="overflow-hidden">
           <CardHeader className="flex flex-row items-start bg-muted/50">
             <CardTitle className="group flex flex-row w-full justify-between items-center gap-2 text-lg">

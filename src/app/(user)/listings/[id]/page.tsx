@@ -37,10 +37,14 @@ import { useQuery } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { formatDate } from "@/helpers";
 import Payments from "@/components/Payments";
+import { useSearchParams } from "next/navigation";
 
 export default function ListingPage({ params }: { params: { id: string } }) {
   const { address } = useAccount();
   const { toast } = useToast();
+
+  const searchParams = useSearchParams();
+  const tx = searchParams.get("tx");
 
   const getListing = async () => {
     const { data } = await axios.get(
@@ -96,6 +100,14 @@ export default function ListingPage({ params }: { params: { id: string } }) {
                 </AlertDialogTrigger>
 
                 <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <a
+                    href={`https://optimism-sepolia.blockscout.com/tx/${tx}`}
+                    target="_blank"
+                  >
+                    View Txn{" "}
+                  </a>
+                </DropdownMenuItem>
                 <DropdownMenuItem>Edit</DropdownMenuItem>
 
                 <DropdownMenuItem>Delete</DropdownMenuItem>

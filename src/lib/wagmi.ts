@@ -8,9 +8,4 @@ export const config = getDefaultConfig({
   projectId: projectId,
   chains: [optimism, optimismSepolia],
   ssr: true,
-  transports: {
-    [optimismSepolia.id]: fallback([
-      http("https://optimism-sepolia.blockscout.com"), // blockscout fallback integration
-    ]),
-  },
 });

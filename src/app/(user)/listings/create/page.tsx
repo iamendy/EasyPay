@@ -110,7 +110,7 @@ export default function Create() {
   useEffect(() => {
     if (confirmStatus === "success") {
       //@ts-ignore switch to listing view
-      router.push(`/listings/${newListing.uid}`);
+      router.push(`/listings/${newListing.uid}?tx=${hash}`);
     }
   }, [confirmStatus]);
 
