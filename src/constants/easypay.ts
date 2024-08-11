@@ -4,29 +4,6 @@ const easypay = {
     {
       inputs: [
         {
-          internalType: "bytes32",
-          name: "_id",
-          type: "bytes32",
-        },
-        {
-          internalType: "uint256",
-          name: "_rate",
-          type: "uint256",
-        },
-        {
-          internalType: "uint256",
-          name: "_quantity",
-          type: "uint256",
-        },
-      ],
-      name: "addListing",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
           internalType: "address",
           name: "_USDT",
           type: "address",
@@ -104,6 +81,19 @@ const easypay = {
       type: "event",
     },
     {
+      inputs: [],
+      name: "USDT",
+      outputs: [
+        {
+          internalType: "address",
+          name: "",
+          type: "address",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
       inputs: [
         {
           internalType: "bytes32",
@@ -111,22 +101,17 @@ const easypay = {
           type: "bytes32",
         },
         {
-          internalType: "address",
-          name: "_seller",
-          type: "address",
+          internalType: "uint256",
+          name: "_rate",
+          type: "uint256",
         },
         {
           internalType: "uint256",
           name: "_quantity",
           type: "uint256",
         },
-        {
-          internalType: "uint256",
-          name: "_amount",
-          type: "uint256",
-        },
       ],
-      name: "payForListing",
+      name: "addListing",
       outputs: [],
       stateMutability: "nonpayable",
       type: "function",
@@ -288,16 +273,31 @@ const easypay = {
       type: "function",
     },
     {
-      inputs: [],
-      name: "USDT",
-      outputs: [
+      inputs: [
+        {
+          internalType: "bytes32",
+          name: "_id",
+          type: "bytes32",
+        },
         {
           internalType: "address",
-          name: "",
+          name: "_seller",
           type: "address",
         },
+        {
+          internalType: "uint256",
+          name: "_quantity",
+          type: "uint256",
+        },
+        {
+          internalType: "uint256",
+          name: "_amount",
+          type: "uint256",
+        },
       ],
-      stateMutability: "view",
+      name: "payForListing",
+      outputs: [],
+      stateMutability: "nonpayable",
       type: "function",
     },
   ],
