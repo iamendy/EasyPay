@@ -38,8 +38,8 @@ EasyPay lets users create listings, share links, and receive USDT payments direc
 
 ## Screenshots
 
-![cover_image](https://esypay.vercel.app/img/1.JPG)
+![cover_image](https://esypay.vercel.app/img/1.png)
 
-![cover_image](https://esypay.vercel.app/img/2.JPG)
+![cover_image](https://esypay.vercel.app/img/2.png)
 
-![cover_image](https://esypay.vercel.app/img/3.JPG)
+![cover_image](https://esypay.vercel.app/img/3.png)
