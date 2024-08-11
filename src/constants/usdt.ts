@@ -1,5 +1,5 @@
 const usdt = {
-  address: "0xea97dd6710904103d61060Cc2Cd84B4B0C0f5a7F",
+  address: "0xED3B69917C6ccCFb6Ab8dC2135CD741339A25112",
   abi: [
     {
       inputs: [],

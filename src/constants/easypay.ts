@@ -1,5 +1,5 @@
 const easypay = {
-  address: "0xC9dD24baA1A05994ED38f1980e782934C359E277",
+  address: "0x0e1d617a3B4F88d6A26ea85DDe8Aa0dfCfcBcDbe",
   abi: [
     {
       inputs: [

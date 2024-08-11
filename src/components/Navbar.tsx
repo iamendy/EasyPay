@@ -16,7 +16,11 @@ const Navbar = () => {
 
           <div className="flex items-center gap-x-1">
             <ToggleMode />
-            <ConnectButton />
+            <ConnectButton
+              showBalance={false}
+              chainStatus={"icon"}
+              accountStatus={"avatar"}
+            />
           </div>
         </div>
       </Container>

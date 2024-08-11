@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "interfaces/IERC20.sol";
 
 contract EasyPay {
-  address public USDT; // 0xd9145CCE52D386f254917e481eB44e9943F39138
+  address public USDT; // 0xea97dd6710904103d61060Cc2Cd84B4B0C0f5a7F
 
   enum Status {
     PENDING,
@@ -124,7 +124,7 @@ contract EasyPay {
     require(_amount >= price, "Invalid amount");
 
     // calculate charge -
-    // note: Fastpay only charges on rate, not on quantity for sellers cheaper experience 😊
+    // note: Easypay only charges on rate, not on quantity for sellers cheaper experience 😊
     uint charge = deductCharge(listing.rate);
 
     //transfer balance to seller after charge
