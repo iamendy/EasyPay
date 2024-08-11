@@ -83,6 +83,7 @@ export default function Create() {
     toast({
       title: "Success",
       description: "Listing created successfully!",
+      dir: "up",
     });
     queryClient.invalidateQueries({ queryKey: ["listings"] });
     queryClient.invalidateQueries({ queryKey: ["tnxs"] });

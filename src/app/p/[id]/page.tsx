@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import axios from "axios";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus, WalletMinimalIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -23,7 +23,7 @@ import {
   AlertDialogHeader,
 } from "@/components/ui/alert-dialog";
 import { usePayment } from "@/hooks/usePayment";
-import cusd from "@/constants/usdt";
+import usdt from "@/constants/usdt";
 import easypay from "@/constants/easypay";
 import { updateListing } from "@/actions";
 import { formatEther, parseEther, stringToHex } from "viem";
@@ -64,9 +64,9 @@ export default function ListingPage({ params }: { params: { id: string } }) {
 
   //check balance
   const { data: balance, refetch: reloadBal } = useReadContract({
-    abi: cusd?.abi,
+    abi: usdt?.abi,
     //@ts-ignore
-    address: cusd?.address,
+    address: usdt?.address,
     functionName: "balanceOf",
     args: [address],
   });
@@ -116,8 +116,8 @@ export default function ListingPage({ params }: { params: { id: string } }) {
     failureReason,
   } = useSimulateContract({
     //@ts-ignore
-    address: cusd?.address,
-    abi: cusd?.abi,
+    address: usdt?.address,
+    abi: usdt?.abi,
     functionName: "approve",
     args: [easypay?.address, totalAmount],
     query: {
@@ -230,11 +230,20 @@ export default function ListingPage({ params }: { params: { id: string } }) {
       <div className="w-[60%] mx-auto">
         <Card className="overflow-hidden">
           <CardHeader className="flex flex-row items-start bg-muted/50">
-            <div className="grid gap-0.5">
-              <CardTitle className="group flex justify-between items-center gap-2 text-lg">
-                {listing?.title}
-              </CardTitle>
-            </div>
+            <CardTitle className="group flex flex-row w-full justify-between items-center gap-2 text-lg">
+              <span>{listing?.title}</span>
+              <div className="flex items-center gap-x-1">
+                <WalletMinimalIcon size={16} />
+                <span>
+                  $
+                  {
+                    //@ts-ignore
+                    formatEther(balance || "0")
+                  }
+                </span>
+              </div>
+            </CardTitle>
+
             {/* <ConnectButton /> */}
           </CardHeader>
           <CardContent className="p-6 text-sm">
@@ -262,17 +271,6 @@ export default function ListingPage({ params }: { params: { id: string } }) {
                 <li className="flex items-center justify-between">
                   <span className="text-muted-foreground">Total</span>
                   <span>${(listing?.rate * quantity)?.toFixed(2)}</span>
-                </li>
-
-                <li className="flex items-center justify-between">
-                  <span className="text-muted-foreground">Acct Balance</span>
-                  <span>
-                    $
-                    {
-                      //@ts-ignore
-                      formatEther(balance || "0")
-                    }
-                  </span>
                 </li>
               </ul>
               <ul className="grid gap-3"></ul>

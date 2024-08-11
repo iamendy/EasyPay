@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { CircleCheck } from "lucide-react";
 import {
   Card,
@@ -7,21 +6,9 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import ProgressBar from "./ProgressBar";
-import cusd from "@/constants/usdt";
-import easypay from "@/constants/easypay";
-import {
-  useWriteContract,
-  useSimulateContract,
-  useAccount,
-  useWaitForTransactionReceipt,
-} from "wagmi";
-import { parseEther } from "viem";
 import { Listing as ListingType } from "@prisma/client";
-import { useEffect } from "react";
 
 export default function Component({
-  listing,
-  amount,
   txt,
   check,
 }: {

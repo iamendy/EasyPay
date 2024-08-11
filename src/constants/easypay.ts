@@ -1,9 +1,36 @@
 const easypay = {
-  address: "0x8Bf6608bF8E1E86c3004E3829D2D488503ED1985",
+  address: "0xC9dD24baA1A05994ED38f1980e782934C359E277",
   abi: [
     {
       inputs: [
-        { internalType: "address", name: "_cusdAddress", type: "address" },
+        {
+          internalType: "bytes32",
+          name: "_id",
+          type: "bytes32",
+        },
+        {
+          internalType: "uint256",
+          name: "_rate",
+          type: "uint256",
+        },
+        {
+          internalType: "uint256",
+          name: "_quantity",
+          type: "uint256",
+        },
+      ],
+      name: "addListing",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "_USDT",
+          type: "address",
+        },
       ],
       stateMutability: "nonpayable",
       type: "constructor",
@@ -11,7 +38,12 @@ const easypay = {
     {
       anonymous: false,
       inputs: [
-        { indexed: true, internalType: "bytes32", name: "id", type: "bytes32" },
+        {
+          indexed: true,
+          internalType: "bytes32",
+          name: "id",
+          type: "bytes32",
+        },
         {
           indexed: true,
           internalType: "address",
@@ -43,7 +75,12 @@ const easypay = {
     {
       anonymous: false,
       inputs: [
-        { indexed: true, internalType: "bytes32", name: "id", type: "bytes32" },
+        {
+          indexed: true,
+          internalType: "bytes32",
+          name: "id",
+          type: "bytes32",
+        },
         {
           indexed: true,
           internalType: "address",
@@ -68,40 +105,76 @@ const easypay = {
     },
     {
       inputs: [
-        { internalType: "bytes32", name: "_id", type: "bytes32" },
-        { internalType: "uint256", name: "_rate", type: "uint256" },
-        { internalType: "uint256", name: "_quantity", type: "uint256" },
+        {
+          internalType: "bytes32",
+          name: "_id",
+          type: "bytes32",
+        },
+        {
+          internalType: "address",
+          name: "_seller",
+          type: "address",
+        },
+        {
+          internalType: "uint256",
+          name: "_quantity",
+          type: "uint256",
+        },
+        {
+          internalType: "uint256",
+          name: "_amount",
+          type: "uint256",
+        },
       ],
-      name: "addListing",
+      name: "payForListing",
       outputs: [],
       stateMutability: "nonpayable",
       type: "function",
     },
     {
-      inputs: [],
-      name: "cusdAddress",
-      outputs: [{ internalType: "address", name: "", type: "address" }],
-      stateMutability: "view",
-      type: "function",
-    },
-    {
-      inputs: [{ internalType: "address", name: "_seller", type: "address" }],
+      inputs: [
+        {
+          internalType: "address",
+          name: "_seller",
+          type: "address",
+        },
+      ],
       name: "getAllListingsForAddress",
       outputs: [
         {
           components: [
-            { internalType: "bytes32", name: "id", type: "bytes32" },
-            { internalType: "address", name: "seller", type: "address" },
-            { internalType: "address", name: "buyer", type: "address" },
-            { internalType: "uint256", name: "rate", type: "uint256" },
-            { internalType: "uint256", name: "quantity", type: "uint256" },
             {
-              internalType: "enum FastPay.Status",
+              internalType: "bytes32",
+              name: "id",
+              type: "bytes32",
+            },
+            {
+              internalType: "address",
+              name: "seller",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "buyer",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "rate",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "quantity",
+              type: "uint256",
+            },
+            {
+              internalType: "enum EasyPay.Status",
               name: "status",
               type: "uint8",
             },
           ],
-          internalType: "struct FastPay.Listing[]",
+          internalType: "struct EasyPay.Listing[]",
           name: "",
           type: "tuple[]",
         },
@@ -111,25 +184,53 @@ const easypay = {
     },
     {
       inputs: [
-        { internalType: "bytes32", name: "_id", type: "bytes32" },
-        { internalType: "address", name: "_seller", type: "address" },
+        {
+          internalType: "bytes32",
+          name: "_id",
+          type: "bytes32",
+        },
+        {
+          internalType: "address",
+          name: "_seller",
+          type: "address",
+        },
       ],
       name: "getListing",
       outputs: [
         {
           components: [
-            { internalType: "bytes32", name: "id", type: "bytes32" },
-            { internalType: "address", name: "seller", type: "address" },
-            { internalType: "address", name: "buyer", type: "address" },
-            { internalType: "uint256", name: "rate", type: "uint256" },
-            { internalType: "uint256", name: "quantity", type: "uint256" },
             {
-              internalType: "enum FastPay.Status",
+              internalType: "bytes32",
+              name: "id",
+              type: "bytes32",
+            },
+            {
+              internalType: "address",
+              name: "seller",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "buyer",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "rate",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "quantity",
+              type: "uint256",
+            },
+            {
+              internalType: "enum EasyPay.Status",
               name: "status",
               type: "uint8",
             },
           ],
-          internalType: "struct FastPay.Listing",
+          internalType: "struct EasyPay.Listing",
           name: "",
           type: "tuple",
         },
@@ -139,31 +240,64 @@ const easypay = {
     },
     {
       inputs: [
-        { internalType: "bytes32", name: "", type: "bytes32" },
-        { internalType: "address", name: "", type: "address" },
+        {
+          internalType: "bytes32",
+          name: "",
+          type: "bytes32",
+        },
+        {
+          internalType: "address",
+          name: "",
+          type: "address",
+        },
       ],
       name: "listings",
       outputs: [
-        { internalType: "bytes32", name: "id", type: "bytes32" },
-        { internalType: "address", name: "seller", type: "address" },
-        { internalType: "address", name: "buyer", type: "address" },
-        { internalType: "uint256", name: "rate", type: "uint256" },
-        { internalType: "uint256", name: "quantity", type: "uint256" },
-        { internalType: "enum FastPay.Status", name: "status", type: "uint8" },
+        {
+          internalType: "bytes32",
+          name: "id",
+          type: "bytes32",
+        },
+        {
+          internalType: "address",
+          name: "seller",
+          type: "address",
+        },
+        {
+          internalType: "address",
+          name: "buyer",
+          type: "address",
+        },
+        {
+          internalType: "uint256",
+          name: "rate",
+          type: "uint256",
+        },
+        {
+          internalType: "uint256",
+          name: "quantity",
+          type: "uint256",
+        },
+        {
+          internalType: "enum EasyPay.Status",
+          name: "status",
+          type: "uint8",
+        },
       ],
       stateMutability: "view",
       type: "function",
     },
     {
-      inputs: [
-        { internalType: "bytes32", name: "_id", type: "bytes32" },
-        { internalType: "address", name: "_seller", type: "address" },
-        { internalType: "uint256", name: "_quantity", type: "uint256" },
-        { internalType: "uint256", name: "_amount", type: "uint256" },
+      inputs: [],
+      name: "USDT",
+      outputs: [
+        {
+          internalType: "address",
+          name: "",
+          type: "address",
+        },
       ],
-      name: "payForListing",
-      outputs: [],
-      stateMutability: "nonpayable",
+      stateMutability: "view",
       type: "function",
     },
   ],

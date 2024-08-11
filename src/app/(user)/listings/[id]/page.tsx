@@ -58,7 +58,7 @@ export default function ListingPage({ params }: { params: { id: string } }) {
 
   const copyLink = () => {
     navigator.clipboard
-      .writeText(`https://fstpay-mini.vercel.app/pay/${params?.id}`)
+      .writeText(`http://localhost:3000/p/${params?.id}`)
       .then(() => {
         toast({
           description: "Listing link copied",
